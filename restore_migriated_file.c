@@ -147,6 +147,8 @@ void restore_migrated_files(char *temp_migrated_file_path, GHashTable *recently_
 					memcpy(&ruc->fp, &p->fps[j], sizeof(fingerprint));
 					add_chunk_to_container(storage_buffer.container_buffer, ruc);
 					g_hash_table_insert(recently_unique_chunks, &p->fps[j], ruc);
+				} else {
+					ruc->ref_count++;
 				}
 				
 				t->fp_cids[j] = ruc->id;

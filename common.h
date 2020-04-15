@@ -71,11 +71,13 @@ void hash2code(unsigned char hash[20], char code[40]);
 void display_hash_table(GHashTable *table);
 
 void storage_hash_table(GHashTable *table, char *ghash_file);
-GHashTable *load_hash_table(char *ghash_file);
+GHashTable *load_hash_table(char *ghash_file, uint64_t *unique_data_size);
 
 void myprintf(const char *cmd, ...); 
 void show_fingerprint(fingerprint *p);
 gboolean g_fid_equal(const void *fid1, const void *fid2);
 void free_fid(void *fid);
+uint64_t get_hashtable_data_size(GHashTable *table);
 
+uint64_t get_fp_count_from_hash(GHashTable *ghash);
 #endif
